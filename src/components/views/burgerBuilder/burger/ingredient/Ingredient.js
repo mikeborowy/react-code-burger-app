@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ingredient.scss';
-import { ingrediets } from '../../../../../constants/index';
+import { ingredientsConst } from '../../../../../constants/index';
 
 class Ingredient extends PureComponent {
 
@@ -13,45 +13,45 @@ class Ingredient extends PureComponent {
     let ingredient = null;
 
     switch (this.props.type) {
-        case ingrediets.BREAD_BOTTOM:
+        case ingredientsConst.BREAD_BOTTOM:
             ingredient = (
-                <div className={styles[ingrediets.BREAD_BOTTOM]}>
+                <div className={styles[ingredientsConst.BREAD_BOTTOM]}>
                     
                 </div>
             );
             break;
-        case ingrediets.BREAD_TOP:
+        case ingredientsConst.BREAD_TOP:
             ingredient = (
-                <div className={styles[ingrediets.BREAD_TOP]}>
-                    <div className={styles.seeds-1}></div>
-                    <div className={styles.seeds-2}></div>
+                <div className={styles[ingredientsConst.BREAD_TOP]}>
+                    <div className={styles['seeds-1']}></div>
+                    <div className={styles['seeds-2']}></div>
                 </div>
             );
             break;
-        case ingrediets.MEAT:
+        case ingredientsConst.MEAT:
             ingredient = (
-                <div className={styles[ingrediets.MEAT]}>
+                <div className={styles[ingredientsConst.MEAT]}>
                     
                 </div>
             );
             break;
-        case ingrediets.CHEESE:
+        case ingredientsConst.CHEESE:
             ingredient = (
-                <div className={styles[ingrediets.CHEESE]}>
+                <div className={styles[ingredientsConst.CHEESE]}>
                     
                 </div>
             );
             break;
-        case ingrediets.SALAD:
+        case ingredientsConst.SALAD:
             ingredient = (
-                <div className={styles[ingrediets.SALAD]}>
+                <div className={styles[ingredientsConst.SALAD]}>
                     
                 </div>
             );
             break;
-        case ingrediets.BACON:
+        case ingredientsConst.BACON:
             ingredient = (
-                <div className={styles[ingrediets.BACON]}>
+                <div className={styles[ingredientsConst.BACON]}>
                     
                 </div>
             );

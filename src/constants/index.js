@@ -1,4 +1,4 @@
-export const ingrediets = {
+export const ingredientsConst = {
     BREAD_BOTTOM: 'bread-bottom',
     BREAD_TOP: 'bread-top',
     MEAT: 'meat',
