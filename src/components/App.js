@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SharedLayout from './views/sharedLayout/SharedLayout';
+import SharedLayout from './sharedLayout/SharedLayout';
 import BurgerBuilder from '../components/views/burgerBuilder/BurgerBuilder';
 class App extends Component {
   render() {

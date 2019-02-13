@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../../hoc/Aux';
+import Aux from '../hoc/Aux';
 import styles from './sharedLayout.scss';
 const SharedLayout = (props) => {
     return (
