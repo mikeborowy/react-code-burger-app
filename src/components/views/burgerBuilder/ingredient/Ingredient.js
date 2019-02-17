@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ingredient.scss';
-import { INGREDIENTS } from '../../../../constants/index';
+import { INGREDIENTS } from '../../../../constants/ingredients';
 
 class Ingredient extends PureComponent {
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './controls.scss';
+import styles from './buildControls.scss';
 import { capitalize } from '../../../helpers/index';
-import { INGREDIENTS } from '../../../../constants/index';
+import { INGREDIENTS } from '../../../../constants/ingredients';
 import BuilderControl from './BuildControl';
 
 const controls = [
@@ -12,17 +12,32 @@ const controls = [
 ]
 
 const BuildControls = (props) => {
+
+    const orderBtnProps = {
+        className: styles.OrderButton,
+        disabled: !props.purchasable,
+        onClick: props.purchasing
+    }
+
+    const renderControls = controls.map(control => (
+        <BuilderControl
+            key={control.label}
+            label={control.label}
+            disabled={props.disabled[control.type]}
+            addIngredient={() => props.addIngredient(control.type)}
+            removeIngredient={() => props.removeIngredient(control.type)}
+        />
+    ))
+
     return (
         <div className={styles.BuildControls}>
-           {controls.map(control => { 
-               return (
-                    <BuilderControl 
-                        key={control.label}
-                        label={control.label}
-                        onAddIngredient={() => props.onAddIngredient(control.type)}
-                    />
-                )
-           })}
+            <p>Current price:
+                <strong>
+                    {props.totalPrice.toFixed(2)}
+                </strong>
+            </p>
+           {renderControls}
+           <button {...orderBtnProps} >ORDER NOW</button>
         </div>
     );
 };

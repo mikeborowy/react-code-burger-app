@@ -14,3 +14,7 @@ export const INGREDIENTS_PRICES = {
     BACON: 2,
 }
 
+export default {
+    INGREDIENTS,
+    INGREDIENTS_PRICES
+}
