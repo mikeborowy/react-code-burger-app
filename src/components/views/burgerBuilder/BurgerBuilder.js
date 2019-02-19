@@ -32,6 +32,11 @@ class BurgerBuilder extends Component {
     removeIngredientHandler = (type) => this.updateIngredient(type, -1);
 
     purchasingHandler = () => this.setState({ purchasing: true });
+
+    purchaseContinuedHandler = () => this.setState({ purchasing: false });
+
+    purchaseCanceldHandler = () => this.setState({ purchasing: false });
+
     /**
      * HELPERS
      */
@@ -60,9 +65,18 @@ class BurgerBuilder extends Component {
         return disabledInfo;
     }
 
+    /**
+     * RENDERERS
+     */
+
     renderSummaryModal = () => (
         <Modal isOpen={this.state.purchasing}>
-            <OrderSummary ingredients={this.state.ingredients}/>
+            <OrderSummary 
+                ingredients={this.state.ingredients}
+                totalPrice={this.state.totalPrice}
+                purchaseContinuedHandler={this.purchaseContinuedHandler}
+                purchaseCanceldHandler={this.purchaseCanceldHandler}
+            />
         </Modal>
     )
 

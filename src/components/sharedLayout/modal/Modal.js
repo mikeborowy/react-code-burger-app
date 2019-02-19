@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './modal.scss';
+import Aux from '../../hoc/Aux';
+import Overlay from '../../common/Overlay/Overlay';
 
 const Modal = (props) => {
 
@@ -11,12 +13,15 @@ const Modal = (props) => {
     };
 
     return (
-        <div 
-            className={styles.Modal}
-            style={style}
-        >
-            {props.children}
-        </div>
+        <Aux>
+            <Overlay isOpen={props.isOpen}/>
+            <div 
+                className={styles.Modal}
+                style={style}
+            >
+                {props.children}
+            </div>
+        </Aux>
     );
 };
 
