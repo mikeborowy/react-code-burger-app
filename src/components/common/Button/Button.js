@@ -3,7 +3,7 @@ import styles from './button.scss';
 
 const ModalButton = (props) => {
 
-    const className = [styles.Button, styles[props.type]].join(' ');
+    const className = [styles.button, styles[props.type]].join(' ');
 
     return (
         <button 

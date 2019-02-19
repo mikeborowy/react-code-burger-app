@@ -1,4 +1,4 @@
-.BuildControls {
+.buildControls {
     width: 100%;
     background-color: orange;
     display: flex;
@@ -8,14 +8,14 @@
     margin: auto;
     padding: 10px 0;
 }
-.BuildControl {
+.buildControl {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 5px 0;
 }
 
-.BuildControl button {
+.buildControl button {
     display: block;
     font: inherit;
     padding: 5px;
@@ -26,47 +26,47 @@
     outline: none;
 }
 
-.BuildControl button:disabled {
+.buildControl button:disabled {
     background-color: #AC9980;
     border: 1px solid #7E7365;
     color: #ccc;
     cursor: default;
 }
 
-.BuildControl button:hover:disabled {
+.buildControl button:hover:disabled {
     background-color: #AC9980;
     color: #ccc;
     cursor: not-allowed;
 }
 
-.Label {
+.label {
     padding: 10px;
     font-weight: bold;
     width: 80px;
 }
 
-.BuildControl .Less {  
+.buildControl .less {  
     background-color: #D39952;
     color: white;
 }
 
-.BuildControl .More {
+.buildControl .more {
     background-color: #8F5E1E;
     color: white;
 }
 
-.BuildControl .Less:hover, .BuildControl .Less:active {  
+.buildControl .less:hover, .buildControl .less:active {  
     background-color: #DAA972;
     color: white;
 }
 
-.BuildControl .More:hover,.BuildControl .More:active {
+.buildControl .more:hover,.buildControl .more:active {
     background-color: #99703F;
     color: white;
 }
 
 
-.OrderButton {
+.orderButton {
     background-color: #DAD735;
     outline: none;
     cursor: pointer;
@@ -78,20 +78,20 @@
     box-shadow: 2px 2px 2px #966909;
 }
 
-.OrderButton:hover, .OrderButton:active {
+.orderButton:hover, .orderButton:active {
     background-color: #A0DB41;
     border: 1px solid #966909;
     color: #966909;
 }
 
-.OrderButton:disabled {
+.orderButton:disabled {
     background-color: #C7C6C6;
     cursor: not-allowed;
     border: 1px solid #ccc;
     color: #888888;
 }
 
-.OrderButton:not(:disabled) {
+.orderButton:not(:disabled) {
     animation: enable 0.3s linear;
 }
 

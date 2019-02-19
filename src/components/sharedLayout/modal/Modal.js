@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './modal.scss';
 import Aux from '../../hoc/Aux';
-import Overlay from '../../common/Overlay/Overlay';
+import Overlay from '../../common/overlay/Overlay';
 
 const Modal = (props) => {
 
@@ -16,7 +16,7 @@ const Modal = (props) => {
         <Aux>
             <Overlay isOpen={props.isOpen}/>
             <div 
-                className={styles.Modal}
+                className={styles.modal}
                 style={style}
             >
                 {props.children}

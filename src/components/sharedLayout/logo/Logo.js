@@ -4,7 +4,7 @@ import images from '../../../assets/images/index';
 import styles from './logo.scss';
 
 const Logo = (props) => (
-    <div className={styles.Logo} style={{height: props.height}}>
+    <div className={styles.logo} style={{height: props.height}}>
         <img src={images.logo} alt="MyBurger" />
     </div>
 );

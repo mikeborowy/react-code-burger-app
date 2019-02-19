@@ -14,7 +14,7 @@ const controls = [
 const BuildControls = (props) => {
 
     const orderBtnProps = {
-        className: styles.OrderButton,
+        className: styles.orderButton,
         disabled: !props.purchasable,
         onClick: props.purchasing
     }
@@ -30,7 +30,7 @@ const BuildControls = (props) => {
     ))
 
     return (
-        <div className={styles.BuildControls}>
+        <div className={styles.buildControls}>
             <p>Current price:
                 <strong>
                     {props.totalPrice.toFixed(2)}

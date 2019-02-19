@@ -1,4 +1,4 @@
 export const BUTTONS = {
-    SUCCESS: 'Success',
-    DANGER: 'Danger',
+    SUCCESS: 'success',
+    DANGER: 'danger',
 }

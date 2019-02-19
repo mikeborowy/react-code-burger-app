@@ -1,7 +1,7 @@
 import React from 'react';
 import Aux from '../hoc/Aux';
 import styles from './sharedLayout.scss';
-import Toolbar from './navigation/Toolbar/Toolbar';
+import Toolbar from './navigation/toolbar/Toolbar';
 const SharedLayout = (props) => {
     return (
         <Aux>

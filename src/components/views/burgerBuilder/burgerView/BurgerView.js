@@ -26,7 +26,7 @@ const BurgerView = (props) => {
     if (renderIngredients.length === 0) renderIngredients = <p>Please add ingredients</p>;
 
     return (
-        <div className={styles.Burger}>
+        <div className={styles.burger}>
             <Ingredient type={INGREDIENTS.BREAD_TOP}/>
             {renderIngredients}
             <Ingredient type={INGREDIENTS.BREAD_BOTTOM}/>

@@ -4,7 +4,7 @@ import Logo from '../../logo/Logo';
 
 const Toolbar = (props) => {
     return (
-        <header className={styles.Toolbar}>
+        <header className={styles.toolbar}>
             <div>MENU</div>
             <Logo />
             <nav>

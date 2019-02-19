@@ -1,6 +1,6 @@
 export const INGREDIENTS = {
-    BREAD_BOTTOM: 'bread-bottom',
-    BREAD_TOP: 'bread-top',
+    BREAD_BOTTOM: 'breadBottom',
+    BREAD_TOP: 'breadTop',
     MEAT: 'meat',
     CHEESE: 'cheese',
     SALAD: 'salad',
