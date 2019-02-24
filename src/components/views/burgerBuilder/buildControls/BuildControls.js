@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './buildControls.scss';
 import { capitalize } from '../../../helpers/index';
 import { INGREDIENTS } from '../../../../constants/ingredients';
-import BuilderControl from './BuildControl';
+import BuilderControl from './buildControl/BuildControl';
 
 const controls = [
     { label: capitalize(INGREDIENTS.BACON), type: INGREDIENTS.BACON},
@@ -16,7 +16,7 @@ const BuildControls = (props) => {
     const orderBtnProps = {
         className: styles.orderButton,
         disabled: !props.purchasable,
-        onClick: props.purchasing
+        onClick: props.purchasingHandler
     }
 
     const renderControls = controls.map(control => (
@@ -24,8 +24,8 @@ const BuildControls = (props) => {
             key={control.label}
             label={control.label}
             disabled={props.disabled[control.type]}
-            addIngredient={() => props.addIngredient(control.type)}
-            removeIngredient={() => props.removeIngredient(control.type)}
+            addIngredientHandler={() => props.addIngredientHandler(control.type)}
+            removeIngredientHandler={() => props.removeIngredientHandler(control.type)}
         />
     ))
 

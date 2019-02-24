@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './buildControls.scss';
+import styles from './buildControl.scss';
 
 const BuildControl = (props) => {
     return (
@@ -7,14 +7,14 @@ const BuildControl = (props) => {
              <div className={styles.label}>{props.label}</div>
              <button
                 className={styles.less}
-                onClick={props.removeIngredient}
-                disabled={props.disabled}    
+                onClick={props.removeIngredientHandler}
+                disabled={props.disabled}
             >
             Less
             </button>
              <button
                 className={styles.more}
-                onClick={props.addIngredient}
+                onClick={props.addIngredientHandler}
              >
              More
              </button>

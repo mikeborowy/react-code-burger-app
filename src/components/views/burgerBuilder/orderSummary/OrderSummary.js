@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../../../hoc/Aux';
+import withAux from '../../../hoc/aux/withAux';
 import Button from '../../../common/button/Button';
 import { BUTTONS } from '../../../../constants/buttons';
 
@@ -15,7 +15,7 @@ const OrderSummary = (props) => {
         ));
 
     return (
-        <Aux>
+        <withAux>
             <h3>Your Order</h3>
             <p>A delicious burger with:</p>
             <ul>
@@ -35,7 +35,7 @@ const OrderSummary = (props) => {
             >
                 Continue
             </Button>
-        </Aux>
+        </withAux>
     );
 };
 

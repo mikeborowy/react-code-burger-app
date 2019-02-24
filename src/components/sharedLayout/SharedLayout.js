@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aux from '../hoc/Aux';
+import withAux from '../hoc/aux/withAux';
 import styles from './sharedLayout.scss';
 import Toolbar from './navigation/toolbar/Toolbar';
 import SideDrawer from './navigation/sideDrawer/SideDrawer';
@@ -19,16 +19,16 @@ class SharedLayout extends Component {
 
     render(){
         return (
-            <Aux>
+            <withAux>
                 <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
-                <SideDrawer 
+                <SideDrawer
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerCloseHandler}
                 />
                 <main className={styles.main}>
                     {this.props.children}
                 </main>
-            </Aux>
+            </withAux>
         );
     }
 };
