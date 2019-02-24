@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // HOC
-import withAux from '../../hoc/aux/withAux';
+import Aux from '../../hoc/aux/Aux';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 // COMPONENTS
 import BuildControls from '../burgerBuilder/buildControls/BuildControls';
 import BurgerView from '../burgerBuilder/burgerView/BurgerView';
@@ -136,7 +137,10 @@ class BurgerBuilder extends Component {
             : <OrderSummary {...orderSummaryProps} />
 
         return (
-            <Modal isOpen={this.state.isPurchasing}>
+            <Modal 
+                isOpen={this.state.isPurchasing}
+                modalCloseHandler={this.purchaseCanceldHandler}
+            >
                 {modalBody}
             </Modal>
         )
@@ -154,13 +158,13 @@ class BurgerBuilder extends Component {
         }
 
         return (
-            <withAux>
+            <Aux>
                 {this.renderSummaryModal()}
                 <BurgerView ingredients={this.state.ingredients}/>
                 <BuildControls { ...buildControlsProps }/>
-            </withAux>
+            </Aux>
         );
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, burgerAPI);

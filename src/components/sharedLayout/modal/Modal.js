@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './modal.scss';
-import withAux from '../../hoc/aux/withAux';
+import Aux from '../../hoc/aux/Aux';
 import Overlay from '../../common/overlay/Overlay';
 
 const Modal = (props) => {
@@ -13,15 +13,18 @@ const Modal = (props) => {
     };
 
     return (
-        <withAux>
-            <Overlay isOpen={props.isOpen}/>
+        <Aux>
+            <Overlay 
+                isOpen={props.isOpen}
+                modalCloseHandler={props.modalCloseHandler}
+            />
             <div
                 className={styles.modal}
                 style={style}
             >
                 {props.children}
             </div>
-        </withAux>
+        </Aux>
     );
 };
 

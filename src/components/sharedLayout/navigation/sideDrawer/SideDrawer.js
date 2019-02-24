@@ -4,7 +4,7 @@ import Logo from '../../../common/logo/Logo';
 import NavigationItems from '../../../common/navigationItems/NavigationItems';
 import classes from './sideDrawer.scss';
 import Overlay from '../../../common/overlay/Overlay';
-import withAux from '../../../hoc/aux/withAux';
+import Aux from '../../../hoc/aux/Aux';
 
 const sideDrawer = ( props ) => {
     let attachedClasses = [classes.sideDrawer, classes.close];
@@ -12,7 +12,7 @@ const sideDrawer = ( props ) => {
         attachedClasses = [classes.sideDrawer, classes.open];
     }
     return (
-        <withAux>
+        <Aux>
             <Overlay isOpen={props.open} clicked={props.closed}/>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.logo}>
@@ -22,7 +22,7 @@ const sideDrawer = ( props ) => {
                     <NavigationItems />
                 </nav>
             </div>
-        </withAux>
+        </Aux>
     );
 };
 
