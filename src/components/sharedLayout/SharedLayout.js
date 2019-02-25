@@ -20,10 +20,10 @@ class SharedLayout extends Component {
     render(){
         return (
             <Aux>
-                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
+                <Toolbar onDrawerToggle={this.sideDrawerToggleHandler}/>
                 <SideDrawer
                     open={this.state.showSideDrawer}
-                    closed={this.sideDrawerCloseHandler}
+                    onSideDrawerClose={this.sideDrawerCloseHandler}
                 />
                 <main className={styles.main}>
                     {this.props.children}

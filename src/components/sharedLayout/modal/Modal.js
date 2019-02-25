@@ -16,7 +16,7 @@ const Modal = (props) => {
         <Aux>
             <Overlay 
                 isOpen={props.isOpen}
-                modalCloseHandler={props.modalCloseHandler}
+                onClose={props.onClose}
             />
             <div
                 className={styles.modal}

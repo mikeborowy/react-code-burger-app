@@ -7,7 +7,7 @@ import DrawerToggle from './drawerToggle/DrawerToggle';
 const Toolbar = (props) => {
     return (
         <header className={styles.toolbar}>
-            <DrawerToggle clicked={props.drawerToggleClicked} />
+            <DrawerToggle onDrawerToggle={props.onDrawerToggle} />
             <div className={styles.logo}>
                 <Logo />
             </div>

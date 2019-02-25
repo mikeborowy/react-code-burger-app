@@ -25,13 +25,13 @@ const OrderSummary = (props) => {
             <p>Continue to checkout?</p>
             <Button
                 type={BUTTONS.DANGER}
-                onClickHandler={props.purchaseCanceldHandler}
+                onClick={props.onPurchaseCancel}
             >
                 Cancel
             </Button>
             <Button
                 type={BUTTONS.SUCCESS}
-                onClickHandler={props.purchaseContinuedHandler}
+                onClick={props.onPurchaseContinue}
             >
                 Continue
             </Button>

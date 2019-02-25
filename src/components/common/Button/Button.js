@@ -8,7 +8,7 @@ const ModalButton = (props) => {
     return (
         <button 
             className={className}
-            onClick={props.onClickHandler}
+            onClick={props.onClick}
         >
             {props.children}
         </button>

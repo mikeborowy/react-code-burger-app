@@ -136,8 +136,8 @@ class BurgerBuilder extends Component {
         const orderSummaryProps = {
             ingredients,
             totalPrice,
-            purchaseContinuedHandler: this.purchaseContinuedHandler,
-            purchaseCanceldHandler: this.purchaseCanceldHandler
+            onPurchaseContinue: this.purchaseContinuedHandler,
+            onPurchaseCancel: this.purchaseCanceldHandler
         }
 
         const modalBody = (isLoading || !ingredients)
@@ -147,7 +147,7 @@ class BurgerBuilder extends Component {
         return (
             <Modal 
                 isOpen={this.state.isPurchasing}
-                modalCloseHandler={this.purchaseCanceldHandler}
+                onClose={this.purchaseCanceldHandler}
             >
                 {modalBody}
             </Modal>
@@ -169,9 +169,9 @@ class BurgerBuilder extends Component {
             purchasable,
             totalPrice,
             disabled: this.chckIfDisabled(),
-            addIngredientHandler: this.addIngredientHandler,
-            removeIngredientHandler: this.removeIngredientHandler,
-            purchasingHandler: this.purchasingHandler
+            onAddIngredient: this.addIngredientHandler,
+            onRemoveIngredient: this.removeIngredientHandler,
+            onPurchase: this.purchasingHandler
         }
 
         if (!ingredients) {

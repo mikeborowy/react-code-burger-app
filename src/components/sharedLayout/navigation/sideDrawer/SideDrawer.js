@@ -13,7 +13,10 @@ const sideDrawer = ( props ) => {
     }
     return (
         <Aux>
-            <Overlay isOpen={props.open} clicked={props.closed}/>
+            <Overlay 
+                isOpen={props.open} 
+                onClose={props.onSideDrawerClose} 
+            />
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.logo}>
                     <Logo />

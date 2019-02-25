@@ -5,7 +5,7 @@ import classes from './drawerToggle.scss';
 const drawerToggle = (props) => (
     <div 
         className={classes.drawerToggle} 
-        onClick={props.clicked}
+        onClick={props.onDrawerToggle}
     >
         <div></div>
         <div></div>

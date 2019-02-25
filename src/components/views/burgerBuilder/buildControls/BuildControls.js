@@ -16,7 +16,7 @@ const BuildControls = (props) => {
     const orderBtnProps = {
         className: styles.orderButton,
         disabled: !props.purchasable,
-        onClick: props.purchasingHandler
+        onClick: props.onPurchase
     }
 
     const renderControls = controls.map(control => (
@@ -24,8 +24,8 @@ const BuildControls = (props) => {
             key={control.label}
             label={control.label}
             disabled={props.disabled[control.type]}
-            addIngredientHandler={() => props.addIngredientHandler(control.type)}
-            removeIngredientHandler={() => props.removeIngredientHandler(control.type)}
+            onAddIngredient={() => props.onAddIngredient(control.type)}
+            onRemoveIngredient={() => props.onRemoveIngredient(control.type)}
         />
     ))
 
