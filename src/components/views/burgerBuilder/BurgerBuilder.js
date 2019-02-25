@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // HOC
 import Aux from '../../hoc/aux/Aux';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -16,16 +16,20 @@ import { burgerAPI } from '../../../services/api/index';
 class BurgerBuilder extends Component {
 
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 0,
         purchasable: 0,
         isPurchasing: false,
         isLoading: false,
+        error: false,
+    }
+
+    componentDidMount() {
+        burgerAPI.get('https://react-burger-app-617db.firebaseio.com/ingredients.json')
+            .then(response => {
+                const ingredients = response.data;
+                this.setState({ ingredients })
+            })
     }
 
     /**
@@ -123,16 +127,20 @@ class BurgerBuilder extends Component {
      */
 
     renderSummaryModal = () => {
-        const { isLoading } = this.state;
+        const { 
+            isLoading,
+            ingredients,
+            totalPrice
+        } = this.state;
 
         const orderSummaryProps = {
-            ingredients: this.state.ingredients,
-            totalPrice: this.state.totalPrice,
+            ingredients,
+            totalPrice,
             purchaseContinuedHandler: this.purchaseContinuedHandler,
             purchaseCanceldHandler: this.purchaseCanceldHandler
         }
 
-        const modalBody = isLoading
+        const modalBody = (isLoading || !ingredients)
             ? <Spinner />
             : <OrderSummary {...orderSummaryProps} />
 
@@ -146,22 +154,44 @@ class BurgerBuilder extends Component {
         )
     }
 
-    render() {
+    renderBurgerView = () => {
+        const { 
+            ingredients,
+            purchasable,
+            totalPrice
+        } = this.state;
+
+        const burgerViewProps = {
+            ingredients
+        }
 
         const buildControlsProps = {
-            purchasable: this.state.purchasable,
-            totalPrice: this.state.totalPrice,
+            purchasable,
+            totalPrice,
             disabled: this.chckIfDisabled(),
             addIngredientHandler: this.addIngredientHandler,
             removeIngredientHandler: this.removeIngredientHandler,
             purchasingHandler: this.purchasingHandler
         }
 
+        if (!ingredients) {
+            return <Spinner />
+        }
+
+        return (
+            <Aux>
+                <BurgerView {...burgerViewProps}/>
+                <BuildControls {...buildControlsProps}/>
+            </Aux>
+        );
+    }
+
+    render() {
+
         return (
             <Aux>
                 {this.renderSummaryModal()}
-                <BurgerView ingredients={this.state.ingredients}/>
-                <BuildControls { ...buildControlsProps }/>
+                {this.renderBurgerView()}
             </Aux>
         );
     }
