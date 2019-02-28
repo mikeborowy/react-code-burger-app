@@ -3,11 +3,11 @@ import React, { Component, Fragment } from 'react';
 import Aux from '../../hoc/aux/Aux';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 // COMPONENTS
+import Spinner from '../../common/spinner/Spinner';
+import Burger from '../../common/burger/Burger';
 import BuildControls from '../burgerBuilder/buildControls/BuildControls';
-import BurgerView from '../burgerBuilder/burgerView/BurgerView';
 import Modal from '../../sharedLayout/modal/Modal';
 import OrderSummary from './orderSummary/OrderSummary';
-import Spinner from '../../common/spinner/Spinner';
 // CONST/ENUMS
 import { INGREDIENTS_PRICES } from '../../../constants/ingredients';
 // API
@@ -154,14 +154,14 @@ class BurgerBuilder extends Component {
         )
     }
 
-    renderBurgerView = () => {
+    renderBurger = () => {
         const { 
             ingredients,
             purchasable,
             totalPrice
         } = this.state;
 
-        const burgerViewProps = {
+        const burgerProps = {
             ingredients
         }
 
@@ -180,7 +180,7 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                <BurgerView {...burgerViewProps}/>
+                <Burger {...burgerProps}/>
                 <BuildControls {...buildControlsProps}/>
             </Aux>
         );
@@ -191,7 +191,7 @@ class BurgerBuilder extends Component {
         return (
             <Aux>
                 {this.renderSummaryModal()}
-                {this.renderBurgerView()}
+                {this.renderBurger()}
             </Aux>
         );
     }

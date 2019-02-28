@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './buildControls.scss';
-import { capitalize } from '../../../helpers/index';
+import { capitalize } from '../../../../helpers/index';
 import { INGREDIENTS } from '../../../../constants/ingredients';
 import BuilderControl from './buildControl/BuildControl';
 

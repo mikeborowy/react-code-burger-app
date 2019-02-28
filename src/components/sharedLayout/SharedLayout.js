@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Aux from '../hoc/aux/Aux';
 import styles from './sharedLayout.scss';
-import Toolbar from './navigation/toolbar/Toolbar';
-import SideDrawer from './navigation/sideDrawer/SideDrawer';
+import Toolbar from './toolbar/Toolbar';
+import SideDrawer from './sideDrawer/SideDrawer';
 class SharedLayout extends Component {
 
     state = {
