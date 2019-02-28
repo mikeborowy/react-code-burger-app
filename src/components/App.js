@@ -5,6 +5,9 @@ import { history } from '../helpers/index';
 import SharedLayout from './sharedLayout/SharedLayout';
 import BurgerBuilder from '../components/views/burgerBuilder/BurgerBuilder';
 import Checkout from '../components/views/checkout/Checkout';
+
+import { NAV_ITEMS } from '../constants/navigationItems';
+
 class App extends Component {
   render() {
     return (
@@ -12,8 +15,15 @@ class App extends Component {
         <Router history={history}>
             <SharedLayout>
               <Switch>
-                <Route path="/" exact component={BurgerBuilder} />
-                <Route path="/checkout" component={Checkout} />
+                <Route 
+                  path={NAV_ITEMS.BUILDER.LINK}
+                  component={BurgerBuilder}
+                  exact 
+                />
+                <Route
+                  path={NAV_ITEMS.CHECKOUT.LINK}
+                  component={Checkout}
+                />
               </Switch>
             </SharedLayout>
         </Router>

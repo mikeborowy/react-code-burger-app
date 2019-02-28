@@ -13,12 +13,12 @@ const CheckoutSummary = (props) => {
             </div>
             <Button
                 type={BUTTONS.DANGER}
-                onClick={props.onClick}
+                onClick={props.onCheckoutCancel}
             >
                 Cancel</Button>
             <Button
                 type={BUTTONS.SUCCESS}
-                onClick={props.onClick}
+                onClick={props.onCheckoutContinue}
             >
                 Continue
             </Button>

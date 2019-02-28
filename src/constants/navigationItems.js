@@ -1,4 +1,4 @@
-export const NAV_LINKS = {
+export const NAV_ITEMS = {
     BUILDER: {
         LINK: '/',
         NAME: 'Burger Builder'

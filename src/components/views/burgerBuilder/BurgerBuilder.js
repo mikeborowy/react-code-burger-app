@@ -10,6 +10,7 @@ import Modal from '../../sharedLayout/modal/Modal';
 import OrderModal from './orderModal/OrderModal';
 // CONST/ENUMS
 import { INGREDIENTS_PRICES } from '../../../constants/ingredients';
+import { NAV_ITEMS } from '../../../constants/navigationItems';
 // API
 import { burgerAPI } from '../../../services/api/index';
 
@@ -73,20 +74,27 @@ class BurgerBuilder extends Component {
             deliveryMethod: 'Fastest'
 
         }
-        burgerAPI
-            .post('/orders.json', order)
-            .then((response => {
-                this.setState({
-                    isLoading: false,
-                    isPurchasing: false
-                })
-            }))
-            .catch((error) => {
-                this.setState({
-                    isLoading: false,
-                    isPurchasing: false
-                })
-            });
+        // burgerAPI
+        //     .post('/orders.json', order)
+        //     .then((response => {
+        //         this.setState({
+        //             isLoading: false,
+        //             isPurchasing: false
+        //         })
+        //     }))
+        //     .catch((error) => {
+        //         this.setState({
+        //             isLoading: false,
+        //             isPurchasing: false
+        //         })
+        //     });
+
+        const queryStr = this.setQueryParams(this.state.ingredients);
+        const query = {
+            pathname: NAV_ITEMS.CHECKOUT.LINK,
+            search: `?${queryStr}`
+        }
+        this.props.history.push(query);
     };
 
     purchaseCanceldHandler = () => {
@@ -121,6 +129,16 @@ class BurgerBuilder extends Component {
         }
         return disabledInfo;
     }
+
+    setQueryParams = (obj) => {
+        const queryParams = [];
+        for (const item in obj) {
+            queryParams.push(
+                `${encodeURIComponent(item)}=${encodeURIComponent(obj[item])}`
+            )
+        }
+        return queryParams.join('&');
+    } 
 
     /**
      * RENDERERS
