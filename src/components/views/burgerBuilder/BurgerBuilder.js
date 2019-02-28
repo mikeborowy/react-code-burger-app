@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 // HOC
 import Aux from '../../hoc/aux/Aux';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -7,7 +7,7 @@ import Spinner from '../../common/spinner/Spinner';
 import Burger from '../../common/burger/Burger';
 import BuildControls from '../burgerBuilder/buildControls/BuildControls';
 import Modal from '../../sharedLayout/modal/Modal';
-import OrderSummary from './orderSummary/OrderSummary';
+import OrderModal from './orderModal/OrderModal';
 // CONST/ENUMS
 import { INGREDIENTS_PRICES } from '../../../constants/ingredients';
 // API
@@ -133,7 +133,7 @@ class BurgerBuilder extends Component {
             totalPrice
         } = this.state;
 
-        const orderSummaryProps = {
+        const orderModalProps = {
             ingredients,
             totalPrice,
             onPurchaseContinue: this.purchaseContinuedHandler,
@@ -142,7 +142,7 @@ class BurgerBuilder extends Component {
 
         const modalBody = (isLoading || !ingredients)
             ? <Spinner />
-            : <OrderSummary {...orderSummaryProps} />
+            : <OrderModal {...orderModalProps} />
 
         return (
             <Modal 
