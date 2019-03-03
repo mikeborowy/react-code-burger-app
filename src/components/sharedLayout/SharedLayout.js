@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import Aux from '../hoc/aux/Aux';
 import styles from './sharedLayout.scss';
 import Toolbar from './toolbar/Toolbar';
-import SideDrawer from './sideDrawer/SideDrawer';
+import SideMenu from './sideMenu/SideMenu';
 class SharedLayout extends Component {
 
     state = {
-        showSideDrawer: false
+        showSideMenu: false
     }
 
-    sideDrawerCloseHandler = () => {
-        this.setState({ showSideDrawer: false });
+    sideMenuCloseHandler = () => {
+        this.setState({ showSideMenu: false });
     }
 
-    sideDrawerToggleHandler = () => {
-        this.setState(prevState => ({ showSideDrawer: !prevState.showSideDrawer }));
+    sideMenuToggleHandler = () => {
+        this.setState(prevState => ({ showSideMenu: !prevState.showSideMenu }));
     }
 
     render(){
+        console.log(this.props.showSideMenu)
         return (
             <Aux>
-                <Toolbar onDrawerToggle={this.sideDrawerToggleHandler}/>
-                <SideDrawer
-                    open={this.state.showSideDrawer}
-                    onSideDrawerClose={this.sideDrawerCloseHandler}
+                <Toolbar onSideMenuToggle={this.sideMenuToggleHandler}/>
+                <SideMenu
+                    open={this.state.showSideMenu}
+                    onClose={this.sideMenuCloseHandler}
                 />
                 <main className={styles.main}>
                     {this.props.children}

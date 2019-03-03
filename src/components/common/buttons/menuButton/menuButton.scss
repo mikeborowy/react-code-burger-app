@@ -1,5 +1,5 @@
 
-.drawerToggle {
+.menuButton {
     width: 40px;
     height: 100%;
     display: flex;
@@ -11,14 +11,14 @@
     cursor: pointer;
 }
 
-.drawerToggle div {
+.menuButton div {
     width: 90%;
     height: 3px;
     background-color: white;
 }
 
 @media (min-width: 500px) {
-    .drawerToggle {
+    .menuButton {
         display: none;
     }
 }

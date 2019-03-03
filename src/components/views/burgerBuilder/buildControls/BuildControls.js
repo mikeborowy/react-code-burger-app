@@ -1,15 +1,7 @@
 import React from 'react';
 import styles from './buildControls.scss';
-import { capitalize } from '../../../../helpers/index';
-import { INGREDIENTS } from '../../../../constants/ingredients';
 import BuilderControl from './buildControl/BuildControl';
-
-const controls = [
-    { label: capitalize(INGREDIENTS.BACON), type: INGREDIENTS.BACON},
-    { label: capitalize(INGREDIENTS.CHEESE), type: INGREDIENTS.CHEESE},
-    { label: capitalize(INGREDIENTS.MEAT), type: INGREDIENTS.MEAT},
-    { label: capitalize(INGREDIENTS.SALAD), type: INGREDIENTS.SALAD}
-]
+import { BUILD_CONTROLS } from '../../../../constants/controls';
 
 const BuildControls = (props) => {
 
@@ -19,15 +11,18 @@ const BuildControls = (props) => {
         onClick: props.onPurchase
     }
 
-    const renderControls = controls.map(control => (
-        <BuilderControl
-            key={control.label}
-            label={control.label}
-            disabled={props.disabled[control.type]}
-            onAddIngredient={() => props.onAddIngredient(control.type)}
-            onRemoveIngredient={() => props.onRemoveIngredient(control.type)}
-        />
-    ))
+    const renderControls = BUILD_CONTROLS.map(control => {
+
+        const buildControlProps = {
+            key: control.label,
+            label: control.label,
+            disabled: props.disabled[control.type],
+            onAddIngredient: () => props.onAddIngredient(control.type),
+            onRemoveIngredient: () => props.onRemoveIngredient(control.type)
+        };
+
+        return <BuilderControl {...buildControlProps}/>
+    })
 
     return (
         <div className={styles.buildControls}>

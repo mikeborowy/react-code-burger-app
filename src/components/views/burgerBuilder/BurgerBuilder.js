@@ -10,7 +10,7 @@ import Modal from '../../sharedLayout/modal/Modal';
 import OrderModal from './orderModal/OrderModal';
 // CONST/ENUMS
 import { INGREDIENTS_PRICES } from '../../../constants/ingredients';
-import { NAV_ITEMS } from '../../../constants/navigationItems';
+import { ROUTES } from '../../../constants/routes';
 // API
 import { burgerAPI } from '../../../services/api/index';
 
@@ -52,46 +52,12 @@ class BurgerBuilder extends Component {
     purchaseContinuedHandler = () => {
         this.setState({
             isLoading: true
-        })
+        });
 
-        const {
-            ingredients,
-            totalPrice
-        } = this.state;
-
-        const order = {
-            ingredients,
-            totalPrice,
-            customer: {
-                name: 'Fatty Boy',
-                address: {
-                    street: 'Elm Street',
-                    zipCode: '00-777',
-                    country: 'USA'
-                },
-                email: 'fatty@eatmetasty.com'
-            },
-            deliveryMethod: 'Fastest'
-
-        }
-        // burgerAPI
-        //     .post('/orders.json', order)
-        //     .then((response => {
-        //         this.setState({
-        //             isLoading: false,
-        //             isPurchasing: false
-        //         })
-        //     }))
-        //     .catch((error) => {
-        //         this.setState({
-        //             isLoading: false,
-        //             isPurchasing: false
-        //         })
-        //     });
-
-        const queryStr = this.setQueryParams(this.state.ingredients);
+        let queryStr = this.setQueryParams(this.state.ingredients);
+        queryStr += `&totalPrice=${this.state.totalPrice}`;
         const query = {
-            pathname: NAV_ITEMS.CHECKOUT.LINK,
+            pathname: ROUTES.CHECKOUT.LINK,
             search: `?${queryStr}`
         }
         this.props.history.push(query);
@@ -138,14 +104,14 @@ class BurgerBuilder extends Component {
             )
         }
         return queryParams.join('&');
-    } 
+    }
 
     /**
      * RENDERERS
      */
 
     renderSummaryModal = () => {
-        const { 
+        const {
             isLoading,
             ingredients,
             totalPrice
@@ -163,7 +129,7 @@ class BurgerBuilder extends Component {
             : <OrderModal {...orderModalProps} />
 
         return (
-            <Modal 
+            <Modal
                 isOpen={this.state.isPurchasing}
                 onClose={this.purchaseCanceldHandler}
             >
@@ -173,7 +139,7 @@ class BurgerBuilder extends Component {
     }
 
     renderBurger = () => {
-        const { 
+        const {
             ingredients,
             purchasable,
             totalPrice

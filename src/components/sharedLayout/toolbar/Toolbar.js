@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './toolbar.scss';
 import Logo from '../../common/logo/Logo';
-import NavigationItems from '../../common/navigationItems/NavigationItems';
-import DrawerToggle from './drawerToggle/DrawerToggle';
+import Navigation from '../../common/navigation/Navigation';
+import MenuButton from '../../common/buttons/menuButton/MenuButton';
 
 const Toolbar = (props) => {
     return (
         <header className={styles.toolbar}>
-            <DrawerToggle onDrawerToggle={props.onDrawerToggle} />
+            <MenuButton onToggle={props.onSideMenuToggle} />
             <div className={styles.logo}>
                 <Logo />
             </div>
             <nav className={styles.desktopOnly}>
-                <NavigationItems />
+                <Navigation />
             </nav>
         </header>
     );
