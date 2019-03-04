@@ -19,7 +19,7 @@ class BurgerBuilder extends Component {
     state = {
         ingredients: null,
         totalPrice: 0,
-        purchasable: 0,
+        purchasable: false,
         isPurchasing: false,
         isLoading: false,
         error: false,
@@ -89,7 +89,7 @@ class BurgerBuilder extends Component {
     }
 
     chckIfDisabled = () => {
-        const disabledInfo = { ...this.state.ingredients };
+        const disabledInfo = { ...this.props.ingredients };
         for (let ingredient in disabledInfo) {
             disabledInfo[ingredient] = disabledInfo[ingredient] <= 0;
         }
